@@ -21,7 +21,7 @@ public class LapComplete : MonoBehaviour
 
     public GameObject RaceFinish;
 
-    void OnTriggerEnter(){
+    public void OnTriggerEnter(){
         Debug.Log("OnTriggerEnter");
         LapsDone += 1;
         RawTime = PlayerPrefs.GetFloat("RawTime");
@@ -58,13 +58,13 @@ public class LapComplete : MonoBehaviour
         HalflapTrig.SetActive(true);
         LapCompleteTrig.SetActive(false);
 
-        if(LapsDone == 1){
-            Debug.Log("Completou");
-            RaceFinish.SetActive(true);
-        }
+        // if(LapsDone == 1){
+        //     Debug.Log("Completou");
+        //     RaceFinish.SetActive(true);
+        // }
     }
 
-    void Update(){
+    public void Update(){
         Debug.Log(LapsDone);
         if(LapsDone == 1){
             Debug.Log("Completou");
