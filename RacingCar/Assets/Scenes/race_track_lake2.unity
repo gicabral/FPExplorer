@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.032044474, g: 0.026559303, b: 0.016539166, a: 1}
+  m_IndirectSpecularColor: {r: 0.003813479, g: 0.005047194, b: 0.0048430837, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -985,7 +985,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2nd Place
+  m_Text: 1st Place
 --- !u!222 &68414083
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11280,6 +11280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeSelection: 0
   AICar: {fileID: 771304254}
+  PositionDisplay: {fileID: 68414080}
 --- !u!114 &1359174691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11299,6 +11300,7 @@ MonoBehaviour:
   InternalScore: 0
   ScoreValue: {fileID: 1365427399}
   ScoreObjects: {fileID: 2052213529}
+  PositionDisplay: {fileID: 68414080}
 --- !u!4 &1359174692
 Transform:
   m_ObjectHideFlags: 0

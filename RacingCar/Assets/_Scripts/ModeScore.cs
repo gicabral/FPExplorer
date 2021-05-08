@@ -13,6 +13,7 @@ public class ModeScore : MonoBehaviour
     public int InternalScore;
     public GameObject ScoreValue;
     public GameObject ScoreObjects;
+    public GameObject PositionDisplay;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class ModeScore : MonoBehaviour
             ScoreUI.SetActive(true);
             AICar.SetActive(false);
             ScoreObjects.SetActive(true);
+            PositionDisplay.SetActive(false);
         }
     }
 

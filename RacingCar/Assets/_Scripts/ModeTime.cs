@@ -7,6 +7,7 @@ public class ModeTime : MonoBehaviour
 {
     public int ModeSelection;
     public GameObject AICar;
+    public GameObject PositionDisplay;
 
     public static bool isTimeMode = false;
 
@@ -17,6 +18,8 @@ public class ModeTime : MonoBehaviour
         if(ModeSelection == 2){
             isTimeMode = true;
             AICar.SetActive(false);
+            PositionDisplay.SetActive(false);
+
         }
     }
 }
