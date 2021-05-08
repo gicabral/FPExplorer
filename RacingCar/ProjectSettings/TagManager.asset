@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - DreamCar01
+  - CarPos
+  - music
   layers:
   - Default
   - TransparentFX

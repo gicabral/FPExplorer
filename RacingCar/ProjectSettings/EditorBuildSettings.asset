@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/race_track_lake2.unity
     guid: faec494d70d12ae408730a362971952c
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 0d5b806e3ea4da8478489cf33d1d7700
   m_configObjects: {}

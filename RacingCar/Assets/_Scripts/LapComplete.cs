@@ -7,6 +7,7 @@ public class LapComplete : MonoBehaviour
 {
     public GameObject LapCompleteTrig;
     public GameObject HalflapTrig;
+    public GameObject LapTimeManager;
 
     public GameObject MinuteDisplay;
     public GameObject SecondDisplay;
@@ -49,6 +50,7 @@ public class LapComplete : MonoBehaviour
         PlayerPrefs.SetFloat("MiliSave", LapTimeManagment.MinuteCount);
         PlayerPrefs.SetFloat("RawTime", LapTimeManagment.RawTime);
 
+        
         LapTimeManagment.MiliCount = 0;
         LapTimeManagment.SecondCount = 0;
         LapTimeManagment.MinuteCount = 0;
@@ -69,6 +71,7 @@ public class LapComplete : MonoBehaviour
         if(LapsDone == 1){
             Debug.Log("Completou");
             RaceFinish.SetActive(true);
+            LapTimeManager.SetActive(false);
         }
     }
 }
