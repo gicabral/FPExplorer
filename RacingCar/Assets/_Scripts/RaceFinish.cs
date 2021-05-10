@@ -11,6 +11,7 @@ public class RaceFinish : MonoBehaviour
     public GameObject LevelMusic;
     public GameObject CompleteTrig;
     public AudioSource FinishMusic;
+    public GameObject GameOverMenu;
 
     void OnTriggerEnter(){
         this.GetComponent<BoxCollider>().enabled = false;
@@ -26,5 +27,6 @@ public class RaceFinish : MonoBehaviour
         FinishMusic.Play();
         GlobalCoins.TotalCash += 100;
         PlayerPrefs.SetInt("SavedCash", GlobalCoins.TotalCash);
+        GameOverMenu.SetActive(true);
     }
 }

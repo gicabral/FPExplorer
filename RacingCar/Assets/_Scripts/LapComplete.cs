@@ -23,7 +23,6 @@ public class LapComplete : MonoBehaviour
     public GameObject RaceFinish;
 
     public void OnTriggerEnter(){
-        Debug.Log("OnTriggerEnter");
         LapsDone += 1;
         RawTime = PlayerPrefs.GetFloat("RawTime");
 
@@ -67,9 +66,7 @@ public class LapComplete : MonoBehaviour
     }
 
     public void Update(){
-        Debug.Log(LapsDone);
         if(LapsDone == 1){
-            Debug.Log("Completou");
             RaceFinish.SetActive(true);
             LapTimeManager.SetActive(false);
         }

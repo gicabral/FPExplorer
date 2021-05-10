@@ -1,83 +1,88 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 
 public class TrackOpponent : MonoBehaviour
 {
     public GameObject TheMarker;
-    public GameObject Mark01;
-    public GameObject Mark02;
-    public GameObject Mark03;
-    public GameObject Mark04;
-    public GameObject Mark05;
-    public GameObject Mark06;
-    public GameObject Mark07;
-    public GameObject Mark08;
-    public GameObject Mark09;
-    public GameObject Mark10;
-    public GameObject Mark11;
-    public GameObject Mark12;
-    public GameObject Mark13;
-    public GameObject Mark14;
-    public GameObject Mark15;
-    public GameObject Mark16;
-    public GameObject Mark17;
+    public GameObject Car;
+    public GameObject CarControls;
+    private Rigidbody m_Rigidbody;
+    public GameObject[] Marks;
+    public Vector3 LastMark;
+    int layer_mask;
+    int layer_mask2;
+    int index;
     public int MarkTracker;
+    Vector3 difference;
 
+    void Start()
+    {
+        layer_mask = 1 << LayerMask.GetMask("Road");
+        m_Rigidbody = Car.GetComponent<Rigidbody>();
+        LastMark = Car.transform.position;
+    }
+
+    int findIndex(GameObject target, GameObject[] Marks)
+    {
+        for (int i = 0; i < Marks.Length; i++)
+        {
+            if (Marks[i].transform.position == target.transform.position)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    void FixedUpdate()
+    {
+
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(Car.transform.position, Vector3.down, out hit, 1000, layer_mask))
+        {
+            if (m_Rigidbody.velocity.magnitude == 0.0f)
+            {
+                if (CarControls.activeSelf && LastMark != Car.transform.position)
+                {
+                   Debug.Log("AAAAA"); 
+                }
+                // Debug.Log(Car.CarControls);
+                Debug.Log(LastMark);
+                Debug.Log("oi");
+            }
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+            Debug.Log("Did Hit");
+
+        }
+        else
+        {
+            Car.transform.position = TheMarker.transform.position;
+            index = findIndex(TheMarker, Marks);
+            Debug.Log(index);
+            if (index != -1)
+            {
+                difference = Marks[index].transform.position - Marks[index-1].transform.position;
+                Quaternion rotation = Quaternion.LookRotation(difference, Vector3.up);
+                Car.transform.rotation = rotation;
+            }
+            
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        if(MarkTracker == 0){
-            TheMarker.transform.position = Mark01.transform.position;
+
+        for (int i = 0; i < Marks.Length; i++){
+            if(MarkTracker == i)
+            { 
+                TheMarker.transform.position = Marks[i].transform.position;
+            }
         }
-        if(MarkTracker == 1){
-            TheMarker.transform.position = Mark02.transform.position;
-        }
-        if(MarkTracker == 2){
-            TheMarker.transform.position = Mark03.transform.position;
-        }
-        if(MarkTracker == 3){
-            TheMarker.transform.position = Mark04.transform.position;
-        }
-        if(MarkTracker == 4){
-            TheMarker.transform.position = Mark05.transform.position;
-        }
-        if(MarkTracker == 5){
-            TheMarker.transform.position = Mark06.transform.position;
-        }
-        if(MarkTracker == 6){
-            TheMarker.transform.position = Mark07.transform.position;
-        }
-        if(MarkTracker == 7){
-            TheMarker.transform.position = Mark08.transform.position;
-        }
-        if(MarkTracker == 8){
-            TheMarker.transform.position = Mark09.transform.position;
-        }
-        if(MarkTracker == 9){
-            TheMarker.transform.position = Mark10.transform.position;
-        }
-        if(MarkTracker == 10){
-            TheMarker.transform.position = Mark11.transform.position;
-        }
-        if(MarkTracker == 11){
-            TheMarker.transform.position = Mark12.transform.position;
-        }
-        if(MarkTracker == 12){
-            TheMarker.transform.position = Mark13.transform.position;
-        }
-        if(MarkTracker == 13){
-            TheMarker.transform.position = Mark14.transform.position;
-        }
-        if(MarkTracker == 14){
-            TheMarker.transform.position = Mark15.transform.position;
-        }
-        if(MarkTracker == 15){
-            TheMarker.transform.position = Mark16.transform.position;
-        }
-        if(MarkTracker == 16){
-            TheMarker.transform.position = Mark17.transform.position;
-        }
+        
 
 
     }
@@ -86,7 +91,7 @@ public class TrackOpponent : MonoBehaviour
         if(collision.gameObject.tag=="DreamCar01"){
             this.GetComponent<BoxCollider>().enabled = false;
             MarkTracker +=1;
-            if(MarkTracker == 16){
+            if(MarkTracker == 31){
                 MarkTracker = 0;
             }
             yield return new WaitForSeconds(1);

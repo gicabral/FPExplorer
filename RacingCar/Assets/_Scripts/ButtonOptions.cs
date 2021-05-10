@@ -16,7 +16,11 @@ public class ButtonOptions : MonoBehaviour
     public void MainMenu(){
         SceneManager.LoadScene(0);
     }
+    // AUDIO SETTINGS
 
+    public void AudioSettings(){
+        SceneManager.LoadScene(5);
+    }
     // Aqui são os botões para selecionar as pistas
 
     public void Track01(){
