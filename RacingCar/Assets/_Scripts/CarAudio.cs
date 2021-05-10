@@ -36,16 +36,16 @@ namespace UnityStandardAssets.Vehicles.Car
         public AudioClip highDecelClip;                                             // Audio clip for high deceleration
         public float pitchMultiplier = 1f;                                          // Used for altering the pitch of audio clips
         public float lowPitchMin = 1f;                                              // The lowest possible pitch for the low sounds
-        public float lowPitchMax = 6f;                                              // The highest possible pitch for the low sounds
+        public float lowPitchMax = 3f;                                              // The highest possible pitch for the low sounds
         public float highPitchMultiplier = 0.25f;                                   // Used for altering the pitch of high sounds
         public float maxRolloffDistance = 500;                                      // The maximum distance where rollof starts to take place
         public float dopplerLevel = 1;                                              // The mount of doppler effect used in the audio
         public bool useDoppler = true;                                              // Toggle for using doppler
 
-        private AudioSource m_LowAccel; // Source for the low acceleration sounds
-        private AudioSource m_LowDecel; // Source for the low deceleration sounds
-        private AudioSource m_HighAccel; // Source for the high acceleration sounds
-        private AudioSource m_HighDecel; // Source for the high deceleration sounds
+        public AudioSource m_LowAccel; // Source for the low acceleration sounds
+        public AudioSource m_LowDecel; // Source for the low deceleration sounds
+        public AudioSource m_HighAccel; // Source for the high acceleration sounds
+        public AudioSource m_HighDecel; // Source for the high deceleration sounds
         private bool m_StartedSound; // flag for knowing if we have started sounds
         private CarController m_CarController; // Reference to car we are controlling
 

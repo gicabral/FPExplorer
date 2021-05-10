@@ -10,11 +10,24 @@ public class Countdown : MonoBehaviour
     public AudioSource GoAudio;
     public GameObject LapTimer;
     public GameObject CarControls;
+    public GameObject InstructionsStart;
     public AudioSource LevelMusic;
 
     void Start()
     {
         StartCoroutine(CountStart());
+        if(ModeSelect.RaceMode == 0){
+            InstructionsStart.GetComponent<Text>().text = "USE THE ARROWS TO WIN THE RACE";
+            InstructionsStart.SetActive(true);
+        }
+        if(ModeSelect.RaceMode == 1){
+            InstructionsStart.GetComponent<Text>().text = "COLLECT THE CUBES TO WIN POINTS";
+            InstructionsStart.SetActive(true);
+        }
+        if(ModeSelect.RaceMode == 2){
+            InstructionsStart.GetComponent<Text>().text = "TRY TO RACE AS FAST AS YOU CAN";
+            InstructionsStart.SetActive(true);
+        }
     }
 
     IEnumerator CountStart(){

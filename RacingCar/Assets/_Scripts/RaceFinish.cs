@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
+using UnityEngine.SceneManagement;
 
 public class RaceFinish : MonoBehaviour
 {
@@ -13,11 +14,12 @@ public class RaceFinish : MonoBehaviour
     public AudioSource FinishMusic;
     public GameObject GameOverMenu;
 
+
     void OnTriggerEnter(){
         this.GetComponent<BoxCollider>().enabled = false;
         MyCar.SetActive(false);
         CompleteTrig.SetActive(false);
-        CarController.m_Topspeed = 0.0f;
+        // CarController.m_Topspeed = 0.0f;
         MyCar.GetComponent<CarController>().enabled = false;
         MyCar.GetComponent<CarUserControl>().enabled = false;
         MyCar.SetActive(true);
@@ -29,4 +31,5 @@ public class RaceFinish : MonoBehaviour
         PlayerPrefs.SetInt("SavedCash", GlobalCoins.TotalCash);
         GameOverMenu.SetActive(true);
     }
+
 }

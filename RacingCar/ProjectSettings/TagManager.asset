@@ -9,6 +9,8 @@ TagManager:
   - CarPos
   - music
   - Road
+  - half
+  - complete
   layers:
   - Default
   - TransparentFX

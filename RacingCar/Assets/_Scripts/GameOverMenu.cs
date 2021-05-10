@@ -10,6 +10,9 @@ public class GameOverMenu : MonoBehaviour
     public GameObject GameOverMenuUI;
     public Text finalText;
     public GameObject positionDisplay;
+    public int MinuteCount;
+    public int SecondCount;
+    public float MiliCount;
     // Update is called once per frame
     void Update()
     {
@@ -17,24 +20,28 @@ public class GameOverMenu : MonoBehaviour
         {
             GameOverMenuUI.SetActive(true);
         }
+        TextContent();
     }
 
     void TextContent()
     {
-        //score
+        //race
         if (ModeSelect.RaceMode == 0)
+        {
+            finalText.text = "" + positionDisplay.GetComponent<Text>().text;
+        }
+        //score
+        else if (ModeSelect.RaceMode == 1)
         {
             finalText.text = "Parabens! Pontos: " + ModeScore.CurrentScore.ToString();
         }
         //time
-        else if (ModeSelect.RaceMode == 1)
-        {
-            finalText.text = "Parabens! " + positionDisplay.GetComponent<Text>();
-        }
-        //race
         else
         {
-            finalText.text = "Oi! " ;
+            MinuteCount = PlayerPrefs.GetInt("MinSave");
+            SecondCount = PlayerPrefs.GetInt("SecSave");
+            MiliCount = PlayerPrefs.GetFloat("MiliSave");
+            finalText.text = "Parabens! Tempo:" + MinuteCount + ":" + SecondCount + "." + MiliCount;            
         }
         
     }
