@@ -59,16 +59,16 @@ public class LapComplete : MonoBehaviour
         HalflapTrig.SetActive(true);
         LapCompleteTrig.SetActive(false);
 
-        if(LapsDone == 1){
+        if(LapsDone == 2){
             Debug.Log("Completou");
             RaceFinish.SetActive(true);
         }
     }
 
     public void Update(){
-        if(LapsDone == 1){
-            RaceFinish.SetActive(true);
-            LapTimeManager.SetActive(false);
-        }
+        // if(LapsDone == 1){
+        //     RaceFinish.SetActive(true);
+        //     LapTimeManager.SetActive(false);
+        // }
     }
 }

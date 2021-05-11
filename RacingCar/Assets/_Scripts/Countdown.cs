@@ -11,6 +11,7 @@ public class Countdown : MonoBehaviour
     public GameObject LapTimer;
     public GameObject CarControls;
     public GameObject InstructionsStart;
+    public GameObject InstructionsCamera;
     public AudioSource LevelMusic;
 
     void Start()
@@ -18,15 +19,21 @@ public class Countdown : MonoBehaviour
         StartCoroutine(CountStart());
         if(ModeSelect.RaceMode == 0){
             InstructionsStart.GetComponent<Text>().text = "USE THE ARROWS TO WIN THE RACE";
+            InstructionsCamera.GetComponent<Text>().text = "PRESS C TO CHANGE VIEW MODE";
             InstructionsStart.SetActive(true);
+            InstructionsCamera.SetActive(true);
         }
         if(ModeSelect.RaceMode == 1){
             InstructionsStart.GetComponent<Text>().text = "COLLECT THE CUBES TO WIN POINTS";
+            InstructionsCamera.GetComponent<Text>().text = "PRESS C TO CHANGE VIEW MODE";
             InstructionsStart.SetActive(true);
+            InstructionsCamera.SetActive(true);
         }
         if(ModeSelect.RaceMode == 2){
             InstructionsStart.GetComponent<Text>().text = "TRY TO RACE AS FAST AS YOU CAN";
+            InstructionsCamera.GetComponent<Text>().text = "PRESS C TO CHANGE VIEW MODE";
             InstructionsStart.SetActive(true);
+            InstructionsCamera.SetActive(true);
         }
     }
 

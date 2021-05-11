@@ -47,7 +47,7 @@ public class CarControlPosition : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump")) 
         {
-            Car.transform.position = LastMark + new Vector3(0, 0, 0);
+            Car.transform.position = LastMark + new Vector3(-15, 0, 0);
             Car.transform.rotation = Quaternion.Slerp(Car.transform.rotation, originalRotationValue, Time.time * rotationResetSpeed);
             InstructionsLeftTrack.SetActive(false);
             positionDisplay.GetComponent<Text>().text = "2nd Place";
